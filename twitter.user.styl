@@ -164,7 +164,8 @@
   .r-1adg3ll .r-aaos50 { bg: $alt }
 
   // Separator after new tweet
-  .r-vz2u4x { bg: $alt }
+  .r-vz2u4x
+    background-color $alt !important
 
   // List separator
   .r-kuekak { bg: $border }
@@ -211,7 +212,12 @@
   .r-wrkyx5 { bc: $border }
 
   // Analytics
+  body[data-scribe-origin="Mobile"]
+    background-color $alt !important
+
   .QuoteTweet { bc: $border }
+  .QuoteTweet [data-item-type=tweet] { bg: $border }
+
   .ProfileTweet-screenname { fg: $fg }
   .ProfileTweet-fullname { fg: $fg-light }
 
@@ -224,6 +230,7 @@
     .ep-SignupText { fg: $fg-light }
     .ep-SignupSubText { fg: $fg }
 
+  .ep-TweetPerformance.ep-Section .ep-DetailedEngagementsSection,
   .ep-Campaign
     border-top-color $border
 
