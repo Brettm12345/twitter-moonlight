@@ -215,16 +215,17 @@
   .ProfileTweet-screenname { fg: $fg }
   .ProfileTweet-fullname { fg: $fg-light }
 
-  .ep-
-    &TweetPerformance.&Section
-      ~/ViewAllEngagementsButton { bg: $alt }
-      ~/MetricDescription { fg: $fg }
-      ~/Metric .ep-MetricTopContainer { fg: $fg-light }
-    &Signup &SignupTextContainer
-      ~/SignupText { fg: $fg-light }
-      ~/SignupSubText { fg: $fg }
-    &Campaign
-      border-top-color $border
+  .ep-TweetPerformance.ep-Section
+    .ep-ViewAllEngagementsButton { bg: $alt }
+    .ep-MetricDescription { fg: $fg }
+    .ep-Metric .ep-MetricTopContainer { fg: $fg-light }
+
+  .ep-Signup .ep-SignupTextContainer
+    .ep-SignupText { fg: $fg-light }
+    .ep-SignupSubText { fg: $fg }
+
+  .ep-Campaign
+    border-top-color $border
 
   // TODO: Clean this up
   .QuoteTweet .tweet-content, .QuoteTweet-text a, .QuoteTweet-text a:hover, .QuoteTweet-text a:focus, .QuoteTweet-text a:active, .QuoteTweet-text .pretty-link b, .QuoteTweet-text .pretty-link s, .QuoteTweet-text .pretty-link:hover b, .QuoteTweet-text .pretty-link:hover s, .QuoteTweet-text .pretty-link:focus b, .QuoteTweet-text .pretty-link:focus s, .QuoteTweet-text .pretty-link:active b, .QuoteTweet-text .pretty-link:active s
