@@ -28,7 +28,8 @@
 @var color alternative "Alternative" #1e2030
 @var color highlight   "Highlight"   #222436
 @var color icon        "Icon"        #2f334d
-@var color foreground  "Foreground"  #828bb8
+@var color text        "Text"        #828bb8
+@var color text-light  "Text Light"  #ffffff
 
 @preprocessor   stylus
 ==/UserStyle== */
@@ -55,7 +56,8 @@
     --alt alternative
     --highlight highlight
     --icon icon
-    --fg foreground
+    --fg text
+    --fg-light text-light
 
   bg(c)
     background-color c
@@ -89,6 +91,9 @@
   $highlight = var(--highlight)
   $icon = var(--icon)
   $fg = var(--fg)
+  $fg-light = var(--fg-light)
+
+  $text-light = var(--text-light)
 
   ::-webkit-scrollbar
     background-color $alt !important
@@ -108,7 +113,7 @@
   .r-1ila09b,
   .r-18bvks7 { bc: $border }
 
-  // Default forground color
+  // Default foreground color
   .r-111h2gw { fg: $fg }
 
   // Tweets/Sidebar section
@@ -116,11 +121,16 @@
     bg $alt
     bc $border
 
+
+  // Timeline
   div[aria-label*="Timeline"]
+
+    // Menu
     div[role="menu"]
-      *[role="menuitem"]:hover { bg: $alt }
       bg $bg
       shadow()
+      // Menu item hover
+      *[role="menuitem"]:hover { bg: $alt }
 
     // Embeded media
     .r-1uaug3w.r-1pi2tsx.r-1udh08x.r-13qz1uu,
@@ -168,10 +178,10 @@
     bg $highlight
     bc $border
 
-  // Search results
+  // Popup eg. Search results / Menu
   .r-xnswec
     bg $highlight
-    border 1px solid
+    border 1px solid $border
     shadow()
 
   // Separator between word counter and + button
@@ -203,19 +213,19 @@
   // Analytics
   .QuoteTweet { bc: $border }
   .ProfileTweet-screenname { fg: $fg }
-  .ProfileTweet-fullname { fg: white }
+  .ProfileTweet-fullname { fg: $fg-light }
 
-  .ep-TweetPerformance.ep-Section
-    .ep-ViewAllEngagementsButton { bg: $alt }
-    .ep-MetricDescription { fg: $fg }
-    .ep-Metric .ep-MetricTopContainer { fg: white }
+  .ep-
+    &TweetPerformance.&Section
+      ~/ViewAllEngagementsButton { bg: $alt }
+      ~/MetricDescription { fg: $fg }
+      ~/Metric .ep-MetricTopContainer { fg: $fg-light }
+    &Signup &SignupTextContainer
+      ~/SignupText { fg: $fg-light }
+      ~/SignupSubText { fg: $fg }
+    &Campaign
+      border-top-color $border
 
-  .ep-Signup .ep-SignupTextContainer
-    .ep-SignupText { fg: white }
-    .ep-SignupSubText { fg: $fg }
-
-  .ep-Campaign
-    border-top-color $border
-
+  // TODO: Clean this up
   .QuoteTweet .tweet-content, .QuoteTweet-text a, .QuoteTweet-text a:hover, .QuoteTweet-text a:focus, .QuoteTweet-text a:active, .QuoteTweet-text .pretty-link b, .QuoteTweet-text .pretty-link s, .QuoteTweet-text .pretty-link:hover b, .QuoteTweet-text .pretty-link:hover s, .QuoteTweet-text .pretty-link:focus b, .QuoteTweet-text .pretty-link:focus s, .QuoteTweet-text .pretty-link:active b, .QuoteTweet-text .pretty-link:active s
-    fg white
+    fg $fg-light
