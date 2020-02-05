@@ -23,16 +23,12 @@
 
 @var color scrollbar-thumb " Scrollbar Thumb" #292c41
 
-@var color gray-1  "Gray 1"  #131421
-@var color gray-2  "Gray 2"  #191b28
-@var color gray-3  "Gray 3"  #1e2030
-@var color gray-4  "Gray 4"  #222436
-@var color gray-5  "Gray 5"  #2f334d
-@var color gray-6  "Gray 6"  #4d5482
-@var color gray-7  "Gray 7"  #828bb8
-@var color gray-8  "Gray 8"  #a9b8e8
-@var color gray-9  "Gray 9"  #b4c2f0
-@var color gray-10 "Gray 10" #c8d3f5
+@var color border      "Border"      #131421
+@var color background  "Background"  #191b28
+@var color alternative "Alternative" #1e2030
+@var color highlight   "Highlight"   #222436
+@var color icon        "Icon"        #2f334d
+@var color foreground  "Foreground"  #828bb8
 
 @preprocessor   stylus
 ==/UserStyle== */
@@ -54,16 +50,21 @@
 
     --scrollbar-thumb scrollbar-thumb
 
-    --gray-1 gray-1
-    --gray-2 gray-2
-    --gray-3 gray-3
-    --gray-4 gray-4
-    --gray-5 gray-5
-    --gray-6 gray-6
-    --gray-7 gray-7
-    --gray-8 gray-8
-    --gray-9 gray-9
-    --gray-10 gray-10
+    --border border
+    --bg background
+    --alt alternative
+    --highlight highlight
+    --icon icon
+    --fg foreground
+
+  bg(c)
+    background-color c
+
+  fg(c)
+    color c
+
+  bc(c)
+    border-color c
 
   shadow()
     box-shadow 0 4px 6px -1px rgba(0, 0, 0, 0.58), 0 2px 4px -1px rgba(0, 0, 0, 0.29)
@@ -82,127 +83,119 @@
   $purple = var(--purple)
 
   $backdrop = var(--backdrop)
-
-  $gray-1 = var(--gray-1)
-  $gray-2 = var(--gray-2)
-  $gray-3 = var(--gray-3)
-  $gray-4 = var(--gray-4)
-  $gray-5 = var(--gray-5)
-  $gray-6 = var(--gray-6)
-  $gray-7 = var(--gray-7)
-  $gray-8 = var(--gray-8)
-  $gray-9 = var(--gray-9)
-  $gray-10 = var(--gray-10)
+  $border = var(--border)
+  $bg = var(--bg)
+  $alt = var(--alt)
+  $highlight = var(--highlight)
+  $icon = var(--icon)
+  $fg = var(--fg)
 
   ::-webkit-scrollbar
-    background-color $gray-3 !important
+    background-color $alt !important
 
   ::-webkit-scrollbar-thumb
     background-color $scrollbar-thumb !important
 
   body,
-  .r-1srlen8, // Loading
-  .r-1awozwy.r-aqfbo4.r-yfoy6g.r-18u37iz.r-1mwlp6a.r-1a8r3js.r-15ysp7h.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6
-    background-color $gray-2 !important
+  .r-1srlen8 // Loading,
+  .r-1awozwy.r-aqfbo4.r-yfoy6g.r-18u37iz.r-1mwlp6a.r-1a8r3js.r-15ysp7h.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6 // Searchbar surrounding area
+    background-color $bg !important
 
-  .r-111h2gw // Default forground color
-    color $gray-7
+  input::placeholder
+    color $fg !important
+
+  // Default border
+  .r-1ila09b,
+  .r-18bvks7 { bc: $border }
+
+  // Default forground color
+  .r-111h2gw { fg: $fg }
+
+  // Tweets/Sidebar section
+  .r-yfoy6g, .r-1uaug3w
+    bg $alt
+    bc $border
 
   div[aria-label*="Timeline"]
     div[role="menu"]
-      background-color $gray-2
+      *[role="menuitem"]:hover { bg: $alt }
+      bg $bg
       shadow()
-      *[role="menuitem"]:hover
-        background-color $gray-3
 
     & > div > div > div:nth-child(2)
       display none
-    .r-1uaug3w.r-1pi2tsx.r-1udh08x.r-13qz1uu, // Embeded media icon background
-    .r-18bvks7 // Embeded media
-      background-color $gray-2
-    div.r-1cuuowz // Embeded media hover
-      background-color $gray-4
 
+    // Embeded media
+    .r-1uaug3w.r-1pi2tsx.r-1udh08x.r-13qz1uu,
+    .r-18bvks7 { bg: $bg }
 
-  .r-1ila09b,
-  .r-18bvks7
-    border-color $gray-1
+    // Embeded media hover
+    div.r-1cuuowz { bg: $highlight }
 
-  .r-11u3ssh
-    background-color $backdrop
+  // Backdrop
+  .r-11u3ssh { bg: $backdrop }
 
   // Checkbox
   .r-1awozwy.r-yfoy6g.r-1778zho.r-z2wwpe.r-1phboty.r-d045u9.r-76blku.r-1777fci.r-64lmo0
-    border-color $gray-5
-
+    bc $icon
 
   // Word count indicator
   div[role="progressbar"] circle[stroke="#38444D"]
-    stroke $gray-5
+    stroke $icon
 
+  // Icon section
+  .r-1kfrmmb { bc: $border }
 
-  .r-1kfrmmb // Icon section
-    border-top-color $gray-1
+  // Tweet author
+  .r-1t982j2
+    margin-bottom 10px
 
-  .r-1nvv5a4 // Tweet hover
-    background-color $gray-4
+  // Tweet click
+  .r-1nvv5a4 { bg: $highlight }
 
-  .r-vz2u4x // Separator after new tweet
-    height 0.5px
-    background-color $gray-1
+  // Separator after new tweet
+  .r-vz2u4x,
+  // List separator
+  .r-kuekak { bg: $border }
 
-  .r-aaos50 // Searchbar
-    background-color $gray-3
-    border-color $gray-1
+  // Selected Searchbar
+  .r-1awozwy.r-aqfbo4.r-yfoy6g.r-18u37iz.r-1mwlp6a.r-1a8r3js.r-15ysp7h.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6
+    bg $highlight
 
-  .r-hpzmsf // Separator between word counter and + button
-    background-color $gray-5
+  // Searchbar
+  .r-aaos50
+    bg $highlight
+    bc $border
 
-  .r-kuekak // List separator
-    background-color $gray-1
+  // Search results
+  .r-xnswec
+    bg $highlight
+    border 1px solid
+    shadow()
 
-  // Icons
+  // Separator between word counter and + button
+  .r-hpzmsf { bg: $icon }
 
+  // Purple Icons
   path[fill="#794BC4"]
     fill $purple
 
-  .r-daml9f // Like icon
-    color $red
-  .r-wcu338
-    background $red-trans
+  // Heart
+  .r-daml9f { fg: $red }
+  .r-wcu338 { bg: $red-trans }
 
-  .r-nw8l94 // Retweet icon
-    color $green
-  .r-1up5ays
-    background $green-trans
+  // Retweet
+  .r-nw8l94 { fg: $green }
+  .r-1up5ays { bg: $green-trans }
 
-  .r-13gxpu9 // Comment/Download icon
-    color $blue
-  .r-zv2cs0
-    background $blue-trans
+  // Comment/Download
+  .r-13gxpu9 { fg: $blue }
+  .r-zv2cs0 { bg: $blue-trans }
 
-  .r-xnswec
-    shadow()
+  // Message
+  .r-hjejmn
+    bg $bg
 
-  .r-yfoy6g, .r-1uaug3w
-    background-color $gray-3
-    border-color $gray-1
-
-
-  .r-hjejmn // Message
-    background-color $gray-2
-
-  .r-wrkyx5 // Message embed
-    border-color $gray-1
-
-
-  .r-1t982j2 // Tweet author
-    margin-bottom 10px
-
-  // Searchbar
-  .r-1awozwy.r-aqfbo4.r-yfoy6g.r-18u37iz.r-1mwlp6a.r-1a8r3js.r-15ysp7h.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6
-    background-color $gray-4
-
-  div#typeaheadDropdown-1
-    border 1px solid
+  // Embed
+  .r-wrkyx5 { bc: $border }
 
