@@ -4,4 +4,4 @@ A dark UserStyle for [twitter](https://twitter.com) based on [moonlight-vscode-t
 
 ## Screenshot
 
-![screenshot](./screenshot.png)
+![screenshot](https://raw.githubusercontent.com/Brettm12345/twitter-moonlight/master/screenshot.png)
