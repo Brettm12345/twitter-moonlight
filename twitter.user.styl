@@ -111,15 +111,16 @@
   div[aria-label*="Timeline"]
     div[role="menu"]
       shadow()
-      div[role="menuitem"]:hover
-        background-color $gray-1
+      *[role="menuitem"]:hover
+        background-color $gray-4
 
     & > div > div > div:nth-child(2)
       display none
+    .r-1uaug3w.r-1pi2tsx.r-1udh08x.r-13qz1uu, // Embeded media icon background
     .r-18bvks7 // Embeded media
       background-color $gray-2
     div.r-1cuuowz // Embeded media hover
-      background-color $gray-1
+      background-color $gray-4
 
 
   .r-1ila09b,
@@ -143,7 +144,7 @@
     border-top-color $gray-1
 
   .r-1nvv5a4 // Tweet hover
-    background-color $gray-2
+    background-color $gray-4
 
   .r-vz2u4x // Separator after new tweet
     height 0.5px
