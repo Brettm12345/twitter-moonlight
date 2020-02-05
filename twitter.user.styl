@@ -8,6 +8,19 @@
 @license      unlicense
 @author       brettm12345
 
+@var color blue       "Blue"             #82aaff
+@var color blue-trans "Transparent Blue" #82aaff1a
+
+@var color red       "Red"             #ff5370
+@var color red-trans "Transparent Red" #ff53701a
+
+@var color green       "Green"             #4fd6be
+@var color green-trans "Transparent Green" #4fd6be1a
+
+@var color backdrop "Backdrop" rgba(0, 0, 0, 0.6)
+
+@var color scrollbar-thumb " Scrollbar Thumb" #292c41
+
 @var color gray-1  "Gray 1"  #131421
 @var color gray-2  "Gray 2"  #191a2a
 @var color gray-3  "Gray 3"  #1e2030
@@ -24,6 +37,19 @@
 
 @-moz-document domain("twitter.com")
   :root
+    --blue     blue
+    --blue-trans blue-trans
+
+    --red     red
+    --red-trans red-trans
+
+    --green     green
+    --green-trans green-trans
+
+    --backdrop backdrop
+
+    --scrollbar-thumb scrollbar-thumb
+
     --gray-1 gray-1
     --gray-2 gray-2
     --gray-3 gray-3
@@ -34,6 +60,19 @@
     --gray-8 gray-8
     --gray-9 gray-9
     --gray-10 gray-10
+
+  $scrollbar-thumb = var(--scrollbar-thumb)
+
+  $blue = var(--blue)
+  $blue-trans = var(--blue-trans)
+
+  $red = var(--red)
+  $red-trans = var(--red-trans)
+
+  $green = var(--green)
+  $green-trans = var(--green-trans)
+
+  $backdrop = var(--backdrop)
 
   $gray-1 = var(--gray-1)
   $gray-2 = var(--gray-2)
@@ -46,17 +85,67 @@
   $gray-9 = var(--gray-9)
   $gray-10 = var(--gray-10)
 
-  $card-hover = selector(".r-1nvv5a4")
+  ::-webkit-scrollbar
+    background-color $gray-3 !important
 
-  body
+  ::-webkit-scrollbar-thumb
+    background-color $scrollbar-thumb !important
+
+  body, .r-1srlen8 // Loading
     background-color $gray-4 !important
 
   .r-1ila09b,
   .r-18bvks7
     border-color $gray-1
 
-  {$card-hover}
+  .r-11u3ssh
+    background-color $backdrop
+
+  // Checkbox
+  .r-1awozwy.r-yfoy6g.r-1778zho.r-z2wwpe.r-1phboty.r-d045u9.r-76blku.r-1777fci.r-64lmo0
+    border-color $gray-5
+
+
+  // Word count indicator
+  div[role="progressbar"] circle[stroke="#38444D"]
+    stroke $gray-5
+
+
+  .r-1kfrmmb // Icon section
+    border-top-color $gray-1
+
+  .r-1nvv5a4 // Tweet hover
     background-color $gray-2
+
+  .r-aaos50 // Separator after new tweet
+    background-color $gray-2
+
+  .r-hpzmsf // Separator between word counter and + button
+    background-color $gray-5
+
+  .r-kuekak // List separator
+    background-color $gray-1
+
+  // Icons
+
+  .r-daml9f // Like icon
+    color $red
+  .r-wcu338
+    background $red-trans
+
+  .r-nw8l94 // Retweet icon
+    color $green
+  .r-1up5ays
+    background $green-trans
+
+  .r-13gxpu9 // Comment/Download icon
+    color $blue
+  .r-zv2cs0
+    background $blue-trans
+
+
+  .r-xnswec
+    box-shadow 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06)
 
   .r-111h2gw
     color $gray-10
@@ -65,7 +154,14 @@
     background-color $gray-3
     border-color $gray-1
 
+
+  .r-hjejmn // Message
+    background-color $gray-2
+
+  .r-wrkyx5 // Message embed
+    border-color $gray-1
+
   // Searchbar
-  .css-1dbjc4n.r-1awozwy.r-aqfbo4.r-yfoy6g.r-18u37iz.r-1mwlp6a.r-1a8r3js.r-15ysp7h.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6
+  .r-1awozwy.r-aqfbo4.r-yfoy6g.r-18u37iz.r-1mwlp6a.r-1a8r3js.r-15ysp7h.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6
     background-color $gray-4
 
