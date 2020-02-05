@@ -11,6 +11,8 @@
 @var color blue       "Blue"             #82aaff
 @var color blue-trans "Transparent Blue" #82aaff1a
 
+@var color purple "Purple" ##c597f9
+
 @var color red       "Red"             #ff5370
 @var color red-trans "Transparent Red" #ff53701a
 
@@ -22,7 +24,7 @@
 @var color scrollbar-thumb " Scrollbar Thumb" #292c41
 
 @var color gray-1  "Gray 1"  #131421
-@var color gray-2  "Gray 2"  #191a2a
+@var color gray-2  "Gray 2"  #191b28
 @var color gray-3  "Gray 3"  #1e2030
 @var color gray-4  "Gray 4"  #222436
 @var color gray-5  "Gray 5"  #2f334d
@@ -46,6 +48,8 @@
     --green     green
     --green-trans green-trans
 
+    --purple purple
+
     --backdrop backdrop
 
     --scrollbar-thumb scrollbar-thumb
@@ -61,6 +65,9 @@
     --gray-9 gray-9
     --gray-10 gray-10
 
+  shadow()
+    box-shadow 0 4px 6px -1px rgba(0, 0, 0, 0.58), 0 2px 4px -1px rgba(0, 0, 0, 0.29)
+
   $scrollbar-thumb = var(--scrollbar-thumb)
 
   $blue = var(--blue)
@@ -71,6 +78,8 @@
 
   $green = var(--green)
   $green-trans = var(--green-trans)
+
+  $purple = var(--purple)
 
   $backdrop = var(--backdrop)
 
@@ -93,6 +102,23 @@
 
   body, .r-1srlen8 // Loading
     background-color $gray-4 !important
+
+  .r-111h2gw // Default forground color
+    color $gray-7
+
+  div[aria-label*="Timeline"]
+    div[role="menu"]
+      shadow()
+      div[role="menuitem"]:hover
+        background-color $gray-1
+
+    & > div > div > div:nth-child(2)
+      display none
+    .r-18bvks7 // Embeded media
+      background-color $gray-2
+    div.r-1cuuowz // Embeded media hover
+      background-color $gray-1
+
 
   .r-1ila09b,
   .r-18bvks7
@@ -117,7 +143,11 @@
   .r-1nvv5a4 // Tweet hover
     background-color $gray-2
 
-  .r-aaos50 // Separator after new tweet
+  .r-vz2u4x // Separator after new tweet
+    height 0.5px
+    background-color $gray-1
+
+  .r-aaos50 // Searchbar
     background-color $gray-2
 
   .r-hpzmsf // Separator between word counter and + button
@@ -127,6 +157,9 @@
     background-color $gray-1
 
   // Icons
+
+  path[fill="#794BC4"]
+    fill $purple
 
   .r-daml9f // Like icon
     color $red
@@ -143,12 +176,8 @@
   .r-zv2cs0
     background $blue-trans
 
-
   .r-xnswec
-    box-shadow 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06)
-
-  .r-111h2gw
-    color $gray-10
+    shadow()
 
   .r-yfoy6g, .r-1uaug3w
     background-color $gray-3
@@ -161,7 +190,14 @@
   .r-wrkyx5 // Message embed
     border-color $gray-1
 
+
+  .r-1t982j2 // Tweet author
+    margin-bottom 10px
+
   // Searchbar
   .r-1awozwy.r-aqfbo4.r-yfoy6g.r-18u37iz.r-1mwlp6a.r-1a8r3js.r-15ysp7h.r-1xcajam.r-ipm5af.r-1hycxz.r-136ojw6
     background-color $gray-4
+
+  div#typeaheadDropdown-1
+    border 1px solid
 
