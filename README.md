@@ -8,6 +8,10 @@ A dark UserStyle for [twitter](https://twitter.com) based on [moonlight-vscode-t
 
 ## Installation
 
+### Enable the dim theme on twitter
+
+Go into your twitter display settings and enable the **Dim** theme.
+
 ### Install stylus
 
 - for [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
